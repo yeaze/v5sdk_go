@@ -1,11 +1,11 @@
 /*
-	JRPC请求/响应数据
+JRPC请求/响应数据
 */
 package wImpl
 
 import (
 	"encoding/json"
-	. "v5sdk_go/utils"
+	. "github.com/yeaze/v5sdk_go/utils"
 )
 
 // jrpc请求结构体

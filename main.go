@@ -5,13 +5,14 @@ import (
 	"fmt"
 	"log"
 	"time"
-	. "v5sdk_go/rest"
-	. "v5sdk_go/ws"
+
+	. "github.com/yeaze/v5sdk_go/rest"
+	. "github.com/yeaze/v5sdk_go/ws"
 )
 
 /*
-	rest API请求
-	更多示例请查看 rest/rest_test.go
+rest API请求
+更多示例请查看 rest/rest_test.go
 */
 func REST() {
 	// 设置您的APIKey
