@@ -45,15 +45,15 @@ type RESTAPIResult struct {
 }
 
 type Okexv5APIResponse struct {
-	Code string                   `json:"code"`
-	Msg  string                   `json:"msg"`
-	Data []map[string]interface{} `json:"data"`
+	Code string        `json:"code"`
+	Msg  string        `json:"msg"`
+	Data []interface{} `json:"data"`
 }
 
 /*
-	endPoint:请求地址
-	apiKey
-	isSimulate: 是否为模拟环境
+endPoint:请求地址
+apiKey
+isSimulate: 是否为模拟环境
 */
 func NewRESTClient(endPoint string, apiKey *APIKeyInfo, isSimulate bool) *RESTAPI {
 
@@ -230,7 +230,7 @@ func (this *RESTAPI) Run(ctx context.Context) (res *RESTAPIResult, err error) {
 }
 
 /*
-	生成请求对应的参数
+生成请求对应的参数
 */
 func (this *RESTAPI) GenReqInfo() (uri string, body string, err error) {
 	uri = this.Uri
@@ -265,14 +265,14 @@ func (this *RESTAPI) GenReqInfo() (uri string, body string, err error) {
 }
 
 /*
-   Set http request headers:
-   Accept: application/json
-   Content-Type: application/json; charset=UTF-8  (default)
-   Cookie: locale=en_US        (English)
-   OK-ACCESS-KEY: (Your setting)
-   OK-ACCESS-SIGN: (Use your setting, auto sign and add)
-   OK-ACCESS-TIMESTAMP: (Auto add)
-   OK-ACCESS-PASSPHRASE: Your setting
+Set http request headers:
+Accept: application/json
+Content-Type: application/json; charset=UTF-8  (default)
+Cookie: locale=en_US        (English)
+OK-ACCESS-KEY: (Your setting)
+OK-ACCESS-SIGN: (Use your setting, auto sign and add)
+OK-ACCESS-TIMESTAMP: (Auto add)
+OK-ACCESS-PASSPHRASE: Your setting
 */
 func (this *RESTAPI) SetHeaders(request *http.Request, timestamp string, sign string) (header string) {
 
@@ -306,7 +306,7 @@ func (this *RESTAPI) SetHeaders(request *http.Request, timestamp string, sign st
 }
 
 /*
-	打印header信息
+打印header信息
 */
 func (this *RESTAPI) PrintRequest(request *http.Request, body string, preHash string) {
 	if this.ApiKeyInfo.SecKey != "" {
